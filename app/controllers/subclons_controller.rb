@@ -19,4 +19,8 @@ class SubclonsController < ApplicationController
   def show
     @subclon = Subclon.find(params[:id])
   end
+  
+  def index
+    @subclons = Subclon.all
+  end
 end

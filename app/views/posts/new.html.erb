@@ -1,0 +1,32 @@
+<h1>Add Post</h1>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <% flash[:errors].each do |error| %>
+         <%= error %> <br />
+        <% end %>
+<% end %>
+<form action="<%= subclon_posts_url(@subclon.id) %>" method="post" >
+  <input
+    name="authenticity_token"
+    type="hidden"
+    value="<%= form_authenticity_token %>">
+
+  <label>Title</label>
+  <input
+    type="text"
+    value=""
+    name="post[title]">
+
+	<label>Link URL</label>
+	<input
+		type="text"
+		value=""
+		name="post[link_url]">
+	
+	<label>Body</label>	
+	<input
+		type="textarea"
+		value=""
+		name="post[body]">
+
+  <input type="submit" value="Add Post">
+</form>

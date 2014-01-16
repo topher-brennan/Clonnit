@@ -1,0 +1,6 @@
+<h1>Clonnit</h1>
+<ul>
+	<% @subclons.each do |subclon| %>
+		<li><%= link_to subclon.name, subclon_url(subclon) %></li>
+	<% end %>
+</ul>

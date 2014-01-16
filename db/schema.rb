@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140115194450) do
+ActiveRecord::Schema.define(:version => 20140116015614) do
+
+  create_table "posts", :force => true do |t|
+    t.string   "title",      :null => false
+    t.string   "link_url"
+    t.string   "body"
+    t.integer  "author_id",  :null => false
+    t.integer  "subclon_id", :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "posts", ["author_id"], :name => "index_posts_on_author_id"
+  add_index "posts", ["subclon_id"], :name => "index_posts_on_subclon_id"
+  add_index "posts", ["title"], :name => "index_posts_on_title"
 
   create_table "subclons", :force => true do |t|
     t.string   "name",       :null => false
