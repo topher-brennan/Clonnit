@@ -7,4 +7,6 @@ class Subclon < ActiveRecord::Base
     :foreign_key => :creator_id,
     :primary_key => :id
   )
+  
+  has_many :posts
 end

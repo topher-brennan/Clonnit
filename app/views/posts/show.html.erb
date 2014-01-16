@@ -1,4 +1,27 @@
-<h1>Post Show</h1>
-<%= @post.title %><br />
-<%= @post.link_url %><br />
+<%= link_to "Return to " + @post.subclon.name, subclon_url(@post.subclon) %>
+<h1><%= link_to @post.title, @post.url %></h1>
+<%= @post.author.username %></li><br />
 <%= @post.body %>
+<h2>Comments</h2>
+<form action="<%= post_comments_url(@post)%>" method="post">
+	<input
+    name="authenticity_token"
+    type="hidden"
+    value="<%= form_authenticity_token %>">
+
+  <input
+		type="textarea"
+		value=""
+		name="comment[body]">
+		
+	<input type="submit" value="Add Comment">
+</form>
+<ul>
+	<% @post.comments.each do |comment| %>
+		<% unless comment.parent_id %>
+			<li><%= comment.body %><br />
+			<%= comment.author.username %>
+			<%= render "nested", :parent => comment %></li>
+		<% end %>
+	<% end %>
+</ul>

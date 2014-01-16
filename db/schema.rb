@@ -11,7 +11,42 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140116015614) do
+ActiveRecord::Schema.define(:version => 20140116234843) do
+
+  create_table "comment_votes", :force => true do |t|
+    t.integer  "value",      :null => false
+    t.integer  "comment_id", :null => false
+    t.integer  "user_id",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comment_votes", ["comment_id"], :name => "index_comment_votes_on_comment_id"
+  add_index "comment_votes", ["user_id"], :name => "index_comment_votes_on_user_id"
+
+  create_table "comments", :force => true do |t|
+    t.string   "body",       :null => false
+    t.integer  "author_id",  :null => false
+    t.integer  "post_id",    :null => false
+    t.integer  "parent_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["author_id"], :name => "index_comments_on_author_id"
+  add_index "comments", ["parent_id"], :name => "index_comments_on_parent_id"
+  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+
+  create_table "post_votes", :force => true do |t|
+    t.integer  "value",      :null => false
+    t.integer  "post_id",    :null => false
+    t.integer  "user_id",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "post_votes", ["post_id"], :name => "index_post_votes_on_post_id"
+  add_index "post_votes", ["user_id"], :name => "index_post_votes_on_user_id"
 
   create_table "posts", :force => true do |t|
     t.string   "title",      :null => false

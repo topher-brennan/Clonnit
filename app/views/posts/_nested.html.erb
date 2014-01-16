@@ -1,0 +1,25 @@
+<form action="<%= post_comments_url(@post)%>" method="post">
+	<input
+    name="authenticity_token"
+    type="hidden"
+    value="<%= form_authenticity_token %>">
+
+	<input
+		type="hidden"
+		value="<%= parent.id %>"
+		name="comment[parent_id]">
+
+  <input
+		type="textarea"
+		value=""
+		name="comment[body]">
+		
+	<input type="submit" value="Add Comment">
+</form>
+<ul>
+	<% parent.children.each do |comment| %>
+		<li><%= comment.body %><br />
+		<%= comment.author.username %>
+		<%= render "nested", :parent => comment %></li>
+	<% end %>
+</ul>

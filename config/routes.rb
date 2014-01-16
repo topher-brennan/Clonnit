@@ -6,5 +6,8 @@ Clonnit::Application.routes.draw do
   resources :subclons do
     resources :posts, only: [:index, :new, :create]
   end
-  resources :posts, only: [:show, :edit, :update, :destroy]
+  resources :posts, only: [:show, :edit, :update, :destroy] do
+    resources :comments, only: [:index, :new, :create]
+  end
+  resources :comments, only: [:show, :edit, :update, :destroy]
 end

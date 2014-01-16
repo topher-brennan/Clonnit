@@ -1,2 +1,9 @@
 <h1><%= @subclon.name %></h1>
-<%= link_to "Add Post", "/subclons/" + @subclon.id.to_s + "/posts/new"%>
+<%= link_to "Add Post", new_subclon_post_url(@subclon) %>
+<ul>
+	<% @subclon.posts.each do |post| %>
+		<li><%= link_to post.title, post.url %> 
+		<%= link_to "Comments", post_url(post) %>
+		<%= post.author.username %></li>
+	<% end %>
+</ul>
