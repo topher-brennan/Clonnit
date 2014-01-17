@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
       redirect_to post_url(@comment.post)
     else
       flash[:errors] = @comment.errors.full_messages
-      render :new
+      redirect_to post_url(@comment.post)
     end
   end
   

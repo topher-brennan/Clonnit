@@ -1,7 +1,8 @@
 <%= link_to "Return to " + @post.subclon.name, subclon_url(@post.subclon) %>
-<h1><%= link_to @post.title, @post.url %></h1>
+<h1><%= @post.total_votes %> <%= link_to @post.title, @post.url %></h1>
 <%= @post.author.username %></li><br />
 <%= @post.body %>
+<%= render "post_voting_buttons", :post => @post %>
 <h2>Comments</h2>
 <form action="<%= post_comments_url(@post)%>" method="post">
 	<input

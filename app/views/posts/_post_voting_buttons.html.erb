@@ -1,0 +1,29 @@
+<% vote = PostVote.find_by_user_id_and_post_id(current_user.id, post.id) %>
+<% if vote.nil? %>
+	<form action="<%= post_post_votes_url(post) %>" method="post">
+		<input
+	    name="authenticity_token"
+	    type="hidden"
+	    value="<%= form_authenticity_token %>">
+	
+		<input
+			type="hidden"
+			value="1"
+			name="post_vote[value]">
+
+		<input type="submit" value="Upvote">
+	</form>
+	<form action="<%= post_post_votes_url(post) %>" method="post">
+		<input
+	    name="authenticity_token"
+	    type="hidden"
+	    value="<%= form_authenticity_token %>">
+
+		<input
+			type="hidden"
+			value="-1"
+			name="post_vote[value]">
+
+		<input type="submit" value="Downvote">
+	</form>
+<% end %>

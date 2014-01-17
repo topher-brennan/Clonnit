@@ -1,0 +1,32 @@
+<h1>Edit Post</h1>
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <% flash[:errors].each do |error| %>
+         <%= error %> <br />
+        <% end %>
+<% end %>
+<form action="<%= post_url(@post) %>" method="put" >
+  <input
+    name="authenticity_token"
+    type="hidden"
+    value="<%= form_authenticity_token %>">
+
+  <label>Title</label>
+  <input
+    type="text"
+    value="<%= @post.title %>"
+    name="post[title]">
+
+	<label>Link URL</label>
+	<input
+		type="text"
+		value="<%= @post.link_url %>"
+		name="post[link_url]">
+	
+	<label>Body</label>	
+	<input
+		type="textarea"
+		value="<%= @post.body %>"
+		name="post[body]">
+
+  <input type="submit" value="Edit Post">
+</form>
