@@ -18,12 +18,6 @@ class PostVotesController < ApplicationController
   end
   
   def update
-    params[:post_vote][:user_id] = current_user.id
-    params[:post_vote][:post_id] = params[:post_id]
-    
-    current_post_vote.update_attributes!(params[:post_vote])
-    
-    redirect_to post_url(current_post_vote.post)    
   end
   
   def delete

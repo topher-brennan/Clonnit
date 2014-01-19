@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+gem 'backbone-on-rails'
+gem 'ejs'
 # gem 'rails_12factor', group: :production
 
 # Bundle edge Rails instead:

@@ -2,7 +2,7 @@
 <h1><%= @post.total_votes %> <%= link_to @post.title, @post.url %></h1>
 <%= @post.author.username %></li><br />
 <%= @post.body %>
-<%= render "post_voting_buttons", :post => @post %>
+<%= render "voting_buttons", :post => @post %>
 <h2>Comments</h2>
 <form action="<%= post_comments_url(@post)%>" method="post">
 	<input

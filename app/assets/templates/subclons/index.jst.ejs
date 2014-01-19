@@ -1,0 +1,9 @@
+<ul>
+	<% _(subclons).each(function (subclon) { %>
+		<li class="subclon" data-id=<%= subclon.id %>">
+			<a href="/subclons/<%= subclon.id %>">
+				<%= subclon.name %>
+			</a>
+		</li>
+	<% }); %>
+</ul>

@@ -2,8 +2,10 @@
 <%= link_to "Add Post", new_subclon_post_url(@subclon) %>
 <ul>
 	<% @subclon.posts.each do |post| %>
-		<li><%= link_to post.title, post.url %> 
+		<li><%= post.total_votes %>
+		<%= link_to post.title, post.url %> 
 		<%= link_to "Comments", post_url(post) %>
-		<%= post.author.username %></li>
+		<%= post.author.username %>
+		<%= render "posts/voting_buttons", :post => post %></li>
 	<% end %>
 </ul>
