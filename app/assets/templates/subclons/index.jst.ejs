@@ -1,8 +1,8 @@
 <ul>
-	<% _(subclons).each(function (subclon) { %>
+	<% subclons.each(function (subclon) { %>
 		<li class="subclon" data-id=<%= subclon.id %>">
-			<a href="/subclons/<%= subclon.id %>">
-				<%= subclon.name %>
+			<a href="#/subclons/<%= subclon.id %>">
+				<%= subclon.get('name') %>
 			</a>
 		</li>
 	<% }); %>
