@@ -10,25 +10,31 @@ Clonnit.Routers.SubclonsRouter = Backbone.Router.extend({
 		"posts": "index",
 	},
 	
-	index: function () {
-		var that = this;
-		
+	index: function () {		
 		var subclonsIndexView = new Clonnit.Views.SubclonsIndexView({
-			collection: that.subclons
+			collection: this.subclons
 		});
 		
-		that.subclons.fetch();
-		that.$rootEl.html(subclonsIndexView.render().$el);
+		this.subclons.fetch();
+		this._swapView(subclonsIndexView);
 	},
 	
 	show: function (id) {
-		var that = this;
+		var subclon = this.subclons.findWhere({ id: parseInt(id) });
 		
-		var subclon = that.subclons.findWhere({ id: parseInt(id) });
 		var subclonDetailView = new Clonnit.Views.SubclonDetailView({
 			model: subclon
 		});
 		
-		that.$rootEl.html(subclonDetailView.render().$el);
+		this._swapView(subclonDetailView);
+	},
+	
+	_swapView: function (view) {
+		if (this.currentView) {
+			this.currentView.remove();
+		}
+		this.currentView = view;
+		
+		this.$rootEl.html(view.render().$el);
 	}
 });

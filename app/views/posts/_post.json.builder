@@ -1,0 +1,1 @@
+json.(post, :id, :title, :link_url, :body, :author_id, :subclon_id)

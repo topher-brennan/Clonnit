@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   
   def index
     @posts = Subclon.find(params[:subclon_id]).posts
-    render :json => @posts
+    render "comments/index"
   end
   
   def show

@@ -6,5 +6,14 @@ Clonnit.Models.Subclon = Backbone.Model.extend({
 			});
 		}
 		return this._posts;
+	},
+	
+	parse: function (jsonResp) {
+		if (jsonResp.posts) {
+			this.posts().set(jsonResp.posts);
+			delete jsonResp.posts;
+		}
+		
+		return jsonResp;
 	}
 });

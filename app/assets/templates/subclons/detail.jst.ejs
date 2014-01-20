@@ -3,10 +3,9 @@
 <a href="/subclons/<%= subclon.id %>/posts/new">Add Post</a><br />
 
 <ul>
-	<% _(posts).each(function (post) { %>
+	<% posts.each(function (post) { %>
 		<%= post.get('title') %>
 	<% }); %>
 </ul>
-
 
 <a href="#/">Back</a>
