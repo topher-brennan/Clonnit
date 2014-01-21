@@ -1,4 +1,8 @@
 Clonnit.Views.SubclonsIndexView = Backbone.View.extend({
+	initialize: function () {
+		this.listenTo(this.collection, 'add remove reset sync change', this.render);
+	},
+	
 	render: function () {
 		var that = this;
 		

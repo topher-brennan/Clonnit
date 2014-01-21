@@ -4,7 +4,11 @@
 
 <ul>
 	<% posts.each(function (post) { %>
-		<%= post.get('title') %>
+		<li>[votes]
+		<a href="<%= post.get('link_url') %>"><%= post.get('title') %></a>
+		Comments
+		[author_username]
+		"voting buttons"</li>
 	<% }); %>
 </ul>
 

@@ -3,10 +3,11 @@ window.Clonnit = {
   Collections: {},
   Views: {},
   Routers: {},
+	Data: {},
 
-  initialize: function($rootEl, subclons) {
-		subclons = new Clonnit.Collections.Subclons(subclons);
-		new Clonnit.Routers.SubclonsRouter($rootEl, subclons);
+  initialize: function() {
+		Clonnit.Data.subclons = new Clonnit.Collections.Subclons();
+		new Clonnit.Routers.AppRouter();
 		Backbone.history.start();
 	}
 };
@@ -22,3 +23,5 @@ Backbone.CompositeView = Backbone.View.extend({
 		$selectorEl.append(subview.$el);
 	}
 });
+
+$(Clonnit.initialize);

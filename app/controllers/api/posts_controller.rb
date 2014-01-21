@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class Api::PostsController < ApplicationController
   before_filter :user_owns_link?, only: [:edit, :update]
 
   def create

@@ -1,7 +1,4 @@
-class SubclonsController < ApplicationController
-  respond_to :json
-  respond_to :html, :only => [:index]
-  
+class Api::SubclonsController < ApplicationController
   def create
     params[:subclon][:creator_id] = current_user.id
 
@@ -25,9 +22,6 @@ class SubclonsController < ApplicationController
   
   def index
     @subclons = Subclon.all
-    respond_to do |format|
-      format.html { render :index }
-      format.json { render :json => @subclons }
-    end
+    render "subclons/index"
   end
 end

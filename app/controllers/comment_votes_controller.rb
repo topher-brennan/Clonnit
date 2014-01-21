@@ -1,2 +1,0 @@
-class CommentVotesController < ApplicationController
-end

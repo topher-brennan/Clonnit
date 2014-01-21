@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Api::CommentsController < ApplicationController
   def create
     params[:comment][:author_id] = current_user.id
     params[:comment][:post_id] = params[:post_id]

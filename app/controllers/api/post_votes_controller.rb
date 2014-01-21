@@ -1,4 +1,4 @@
-class PostVotesController < ApplicationController
+class Api::PostVotesController < ApplicationController
   def create
     params[:post_vote][:user_id] = current_user.id
     params[:post_vote][:post_id] = params[:post_id]
