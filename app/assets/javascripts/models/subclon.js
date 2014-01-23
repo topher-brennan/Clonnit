@@ -14,7 +14,6 @@ Clonnit.Models.Subclon = Backbone.Model.extend({
 		if (jsonResp.posts) {
 			this.posts().set(jsonResp.posts, { parse: true });
 			Clonnit.Data.posts.set(this.posts().models, { remove: false });
-			// Clonnit.Data.posts.add(this.posts());
 			delete jsonResp.posts;
 		}
 		

@@ -43,7 +43,7 @@ Clonnit.Views.PostDetailView = Backbone.View.extend({
 		var that = this
 		comment.save({}, {
 			success: function () {
-				that.model.comments().add(comment);
+				that.model.comments().unshift(comment);
 			}
 		});
 	}

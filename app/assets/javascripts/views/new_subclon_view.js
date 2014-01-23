@@ -13,7 +13,7 @@ Clonnit.Views.NewSubclonView = Backbone.View.extend({
 		event.preventDefault();
 		var formData = $(event.currentTarget.parentElement).serializeJSON();
 		var subclon = new Clonnit.Models.Subclon(formData["subclon"]);
-		Clonnit.Data.subclons.add(subclon)
+		Clonnit.Data.subclons.unshift(subclon)
 		subclon.save();
 		Backbone.history.navigate("#/");
 	}
