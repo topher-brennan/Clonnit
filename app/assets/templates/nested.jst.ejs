@@ -11,7 +11,7 @@
 		<% var parentID = comment.get('parent_id') %>
 		<% if (parentID && parentID === parent.id ) { %>
 			<li><%= comment.get('body') %><br />
-			<%= comment.get('author_username') %>
+			<%= comment.get('authorUsername') %>
 			<%= JST['nested']({ comments: comments, parent: comment }) %></li>
 		<% } %>
 	<% }); %>
