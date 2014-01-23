@@ -6,10 +6,9 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     
     if @comment.save
-      redirect_to post_url(@comment.post)
+      render :json => @comment
     else
-      flash[:errors] = @comment.errors.full_messages
-      redirect_to post_url(@comment.post)
+      render :json
     end
   end
   

@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
     :foreign_key => :author_id,
     :primary_key => :id
   )
+  
+  has_many :post_votes
+  
+  has_many :posts_voted_on, :through => :post_votes, :source => :post
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)

@@ -1,0 +1,28 @@
+<% if (Clonnit.currentUser && !post.get('currentUserHasVoted')) { %>
+<form>
+<input
+	type="hidden"
+	value=<%= post.id %>
+	name="post_vote[post_id]">
+
+	<input
+		type="hidden"
+		value="1"
+		name="post_vote[value]">
+
+	<button class="vote" data-id=<%= post.id %>>Upvote</button>
+</form>
+<form>
+	<input
+		type="hidden"
+		value=<%= post.id %>
+		name="post_vote[post_id]">
+
+	<input
+		type="hidden"
+		value="-1"
+		name="post_vote[value]">
+
+	<button class="vote" data-id=<%= post.id %>>Downvote</button>
+</form>
+<% } %>

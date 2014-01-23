@@ -1,13 +1,16 @@
 class Api::PostVotesController < ApplicationController
   def create
-    params[:post_vote][:user_id] = current_user.id
-    params[:post_vote][:post_id] = params[:post_id]
+    if current_user
+      params[:post_vote][:user_id] = current_user.id
     
-    @post_vote = PostVote.new(params[:post_vote])
+      @post_vote = PostVote.new(params[:post_vote])
     
-    @post_vote.save
-    
-    redirect_to post_url(@post_vote.post)
+      @post_vote.save
+      
+      render :json => @post_vote
+    else
+      render :json => ["You must be logged in to vote"]
+    end
   end
   
   def new

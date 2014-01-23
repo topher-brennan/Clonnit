@@ -7,8 +7,14 @@ window.Clonnit = {
 
   initialize: function() {
 		Clonnit.Data.subclons = new Clonnit.Collections.Subclons();
-		new Clonnit.Routers.AppRouter();
-		Backbone.history.start();
+		Clonnit.Data.posts = new Clonnit.Collections.Posts();
+		Clonnit.Data.comments = new Clonnit.Collections.Comments();
+		Clonnit.Data.subclons.fetch({
+			success: function () {
+				new Clonnit.Routers.AppRouter();
+				Backbone.history.start();
+			}
+		});
 	}
 };
 

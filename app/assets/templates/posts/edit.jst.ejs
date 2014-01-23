@@ -1,0 +1,22 @@
+<h1>Edit Post</h1>
+<form>
+	<label>Title</label>
+	<input
+	  type="text"
+	  value="<%= post.get('title') %>"
+	  name="post[title]">
+
+	<label>Link URL</label>
+	<input
+		type="text"
+		value="<%= post.get('link_url') %>"
+		name="post[link_url]">
+
+	<label>Body</label>	
+	<input
+		type="textarea"
+		value="<%= post.get('body') %>"
+		name="post[body]">
+
+	<button class="edit-post">Edit Post</button>
+</form>

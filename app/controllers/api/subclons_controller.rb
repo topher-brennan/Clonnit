@@ -5,10 +5,9 @@ class Api::SubclonsController < ApplicationController
     @subclon = Subclon.new(params[:subclon])
 
     if @subclon.save
-      redirect_to subclon_url(@subclon)
+      render :json => @subclon
     else
-      flash[:errors] = @subclon.errors.full_messages
-      render :new
+      render :json => @task.errors, :status => 422
     end
   end
 

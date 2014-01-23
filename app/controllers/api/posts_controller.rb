@@ -8,7 +8,7 @@ class Api::PostsController < ApplicationController
     @post = Post.new(params[:post])
     
     if @post.save
-      redirect_to post_url(@post)
+      render :json => @post
     else
       flash[:errors] = @post.errors.full_messages
       render :new
@@ -34,8 +34,9 @@ class Api::PostsController < ApplicationController
   end
   
   def update
+      @post = Post.find(params[:id])
     if @post.update_attributes(params[:post])
-      redirect_to post_url(@post)
+      render :json => @post
     else
       flash[:errors] = @post.errors.full_messages
       render :edit

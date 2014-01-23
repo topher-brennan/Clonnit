@@ -1,0 +1,27 @@
+<h1><%= post.get('totalVotes') %>
+<a href="<%= post.linkURLOrFragment() %>"><%= post.get('title') %></a></h1>
+<%= post.get('authorUsername') %><br />
+<%= post.get('body') %>
+<%= JST["voting_buttons"]({ post: post }) %>
+<% if (post.get('author_id') === Clonnit.currentUser['id']) { %>
+	<a href="#/posts/<%= post.id %>/edit">Edit Post</a>
+<% } %>
+<h2>Comments</h2>
+<form>
+  <input
+		type="textarea"
+		value=""
+		name="comment[body]">
+		
+	<button class="add-comment">Add Comment</button>
+</form>
+<ul>
+	<% comments.each(function (comment) { %>
+		<% if (!comment.get('parent_id')) { %>
+			<li><%= comment.get('body') %><br />
+			<%= comment.get('authorUsername') %>
+			<%= JST['nested']({ comments: comments, parent: comment }) %></li>
+		<% } %>
+	<% }); %>
+</ul>
+<a href="#/subclons/<%= post.get('subclon_id') %>">Back</a>

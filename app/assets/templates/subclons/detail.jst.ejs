@@ -1,14 +1,14 @@
 <h1><%= subclon.get('name') %></h1>
 
-<a href="/subclons/<%= subclon.id %>/posts/new">Add Post</a><br />
+<a href="#/subclons/<%= subclon.id %>/posts/new">Add Post</a><br />
 
 <ul>
 	<% posts.each(function (post) { %>
-		<li>[votes]
-		<a href="<%= post.get('link_url') %>"><%= post.get('title') %></a>
-		Comments
-		[author_username]
-		"voting buttons"</li>
+		<li><%= post.get('totalVotes') %>
+		<a href="<%= post.linkURLOrFragment() %>"><%= post.get('title') %></a>
+		<a href="#/posts/<%= post.id %>">Comments</a>
+		<%= post.get('authorUsername') %>
+		<%= JST["voting_buttons"]({ post: post }) %></li>
 	<% }); %>
 </ul>
 

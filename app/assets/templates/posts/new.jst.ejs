@@ -1,0 +1,27 @@
+<h1>Add Post</h1>
+<form>
+	<input
+		type="hidden"
+		value=<%= subclonID %>
+		name="post[subclon_id]">
+
+	<label>Title</label>
+	<input
+	  type="text"
+	  value=""
+	  name="post[title]">
+
+	<label>Link URL</label>
+	<input
+		type="text"
+		value=""
+		name="post[link_url]">
+
+	<label>Body</label>	
+	<input
+		type="textarea"
+		value=""
+		name="post[body]">
+
+	<button class="add-post">Add Post</button>
+</form>

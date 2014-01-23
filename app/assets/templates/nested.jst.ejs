@@ -1,0 +1,18 @@
+<form>
+  <input
+		type="textarea"
+		value=""
+		name="comment[body]">
+		
+	<button class="add-comment" data-id=<%= parent.id %>>Add Comment</button>
+</form>
+<ul>
+	<% comments.each(function (comment) { %>
+		<% var parentID = comment.get('parent_id') %>
+		<% if (parentID && parentID === parent.id ) { %>
+			<li><%= comment.get('body') %><br />
+			<%= comment.get('author_username') %>
+			<%= JST['nested']({ comments: comments, parent: comment }) %></li>
+		<% } %>
+	<% }); %>
+</ul>
