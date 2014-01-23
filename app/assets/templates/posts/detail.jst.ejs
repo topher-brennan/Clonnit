@@ -15,10 +15,10 @@
 		
 	<button class="add-comment">Add Comment</button>
 </form>
-<ul>
+<ul class="list-group">
 	<% comments.each(function (comment) { %>
 		<% if (!comment.get('parent_id')) { %>
-			<li><%= comment.get('body') %><br />
+			<li class="list-group-item"><%= comment.get('body') %><br />
 			<%= comment.get('authorUsername') %>
 			<%= JST['nested']({ comments: comments, parent: comment }) %></li>
 		<% } %>

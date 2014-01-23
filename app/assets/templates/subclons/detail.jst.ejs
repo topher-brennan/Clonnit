@@ -1,13 +1,11 @@
-<h1><%= subclon.get('name') %></h1>
+<h1><%= subclon.get('name') %> <small><a href="#/subclons/<%= subclon.id %>/posts/new">Add Post</a></small></h1>
 
-<a href="#/subclons/<%= subclon.id %>/posts/new">Add Post</a><br />
-
-<ul>
+<ul class="list-group">
 	<% posts.each(function (post) { %>
-		<li><%= post.get('totalVotes') %>
+		<li class="list-group-item"><h3><%= post.get('totalVotes') %>
 		<a href="<%= post.linkURLOrFragment() %>"><%= post.get('title') %></a>
 		<a href="#/posts/<%= post.id %>">Comments</a>
-		<%= post.get('authorUsername') %>
+		<%= post.get('authorUsername') %></h3>
 		<%= JST["voting_buttons"]({ post: post }) %></li>
 	<% }); %>
 </ul>

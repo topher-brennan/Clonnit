@@ -1,8 +1,7 @@
-<h1>A Reddit Clone</h1>
-<h2>Subclons</h2>
-<ul>
+<h1>Subclons</h1>
+<ul class="list-group">
 	<% subclons.each(function (subclon) { %>
-		<li class="subclon" data-id=<%= subclon.id %>">
+		<li class="list-group-item subclon" data-id=<%= subclon.id %>">
 			<a href="#/subclons/<%= subclon.id %>">
 				<%= subclon.get('name') %>
 			</a>
