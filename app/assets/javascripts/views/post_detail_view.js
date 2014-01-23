@@ -38,6 +38,7 @@ Clonnit.Views.PostDetailView = Backbone.View.extend({
 		if (parentID) {
 			comment.set('parent_id', parentID);
 		}
+		comment.set('authorUsername', Clonnit.currentUser["username"]);
 		comment.set('post_id', this.model.id);
 		var that = this
 		comment.save({}, {
