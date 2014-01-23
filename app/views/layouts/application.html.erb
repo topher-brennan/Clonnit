@@ -25,6 +25,30 @@
     <li><%= link_to "Sign Up", new_user_url %></li>
     <li><%= link_to "Sign In", new_session_url %></li>
   </ul>
+Or:
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <% flash[:errors].each do |error| %>
+         <%= error %> <br />
+        <% end %>
+<% end %>
+<form action="/session" method="post">
+  <input
+    name="authenticity_token"
+    type="hidden"
+    value="<%= form_authenticity_token %>">
+
+  <input
+    type="hidden"
+    value="Guest"
+    name="user[username]">
+
+  <input
+    type="hidden"
+    value="guestpassword"
+    name="user[password]">
+
+  <input type="submit" value="Sign In As Guest">
+</form>
 <% end %>
 
 <%= yield %>
