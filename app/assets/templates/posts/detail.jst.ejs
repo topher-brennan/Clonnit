@@ -1,7 +1,7 @@
 <h1><%= post.get('totalVotes') %>
 <a href="<%= post.linkURLOrFragment() %>"><%= post.get('title') %></a></h1>
 <%= post.get('authorUsername') %><br />
-<%= post.get('body') %>
+<%= post.get('body') %><br />
 <%= JST["voting_buttons"]({ post: post }) %>
 <% if (post.get('author_id') === Clonnit.currentUser['id']) { %>
 	<a href="#/posts/<%= post.id %>/edit">Edit Post</a>
