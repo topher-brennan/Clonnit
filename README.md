@@ -2,10 +2,11 @@
 
 ## A Reddit Clone
 
-Made in 8 days for an App Academy student final project by Chris Hallquist. Written as a (mostly) single-page app with Backbone.js on Rails. 
+Made in 8 days for an App Academy student final project by Chris Hallquist. Written as a (mostly) single-page app with Backbone.js on Rails. Styling done with Twitter Bootstrap and jQuery UI.
 
 ## TODO
 
+* Comment / post reply notification
 * Deleting post
     * Delete/edit other things
 * File uploading
@@ -17,6 +18,7 @@ Made in 8 days for an App Academy student final project by Chris Hallquist. Writ
     * Comment voting
     * Expand / collapse comment trees
     * Let users change their votes
+		* Rearrange front page
+		* Better post sorting algorithm
 * Testing?
-* Comment / post reply notification
 * Store individualized sub arrangements

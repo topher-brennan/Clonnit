@@ -8,7 +8,7 @@
 <% if (post.escape('body') !== "") { %>
 	<ul class="list-group">
 		<li class="list-group-item">
-			<%= post.escape('body') %>
+			<p><%= post.escape('body') %></p>
 		</li>
 	</ul>		
 <% } %>
@@ -37,8 +37,8 @@
 	<% comments.each(function (comment) { %>
 		<% if (!comment.get('parent_id')) { %>
 			<li class="list-group-item">
-			<b>Submitted by <%= comment.escape('authorUsername') %></b><br />
-			<%= comment.escape('body') %>
+			<p><b>Submitted by <%= comment.escape('authorUsername') %></b></p>
+			<p><%= comment.escape('body') %></p>
 			<%= JST['nested']({ comments: comments, parent: comment }) %></li>
 		<% } %>
 	<% }); %>
