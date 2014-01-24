@@ -2,18 +2,22 @@
 <a href="<%= post.linkURLOrFragment() %>"><%= post.escape('title') %></a>
 <small>Submitted by <%= post.escape('authorUsername') %></small></h1>
 <%= JST["voting_buttons"]({ post: post }) %><br>
+
 &nbsp;
+
 <% if (post.escape('body') !== "") { %>
 	<ul class="list-group">
 		<li class="list-group-item">
 			<%= post.escape('body') %>
 		</li>
 	</ul>		
-<% } %>	
+<% } %>
+
 <% var currentUser = Clonnit.currentUser %>
 <% if (currentUser && post.get('author_id') === currentUser['id']) { %>
 	<a href="#/posts/<%= post.id %>/edit">Edit Post</a>
 <% } %>
+
 <h2><%= post.comments().length %> Comments</h2>
 <form>
   <input
@@ -23,12 +27,14 @@
 		
 	<button class="add-comment">Add Comment</button>
 </form>
+
 &nbsp;
+
 <ul class="list-group">
 	<% comments.each(function (comment) { %>
 		<% if (!comment.get('parent_id')) { %>
 			<li class="list-group-item"><%= comment.escape('body') %><br />
-			<%= comment.escape('authorUsername') %>
+			-<%= comment.escape('authorUsername') %>
 			<%= JST['nested']({ comments: comments, parent: comment }) %></li>
 		<% } %>
 	<% }); %>
