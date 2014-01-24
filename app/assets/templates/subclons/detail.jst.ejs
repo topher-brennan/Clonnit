@@ -3,8 +3,8 @@
 <ul class="list-group">
 	<% posts.each(function (post) { %>
 		<li class="list-group-item"><h3><%= post.get('totalVotes') %>
-		<a href="<%= post.linkURLOrFragment() %>"><%= post.get('title') %></a>
-		<small>Submitted by <%= post.get('authorUsername') %>
+		<a href="<%= post.linkURLOrFragment() %>"><%= post.escape('title') %></a>
+		<small>Submitted by <%= post.escape('authorUsername') %>
 		<a href="#/posts/<%= post.id %>">
 			<%= post.comments().length %> Comments
 		</a></small></h3>

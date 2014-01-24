@@ -3,19 +3,19 @@
 	<label>Title</label>
 	<input
 	  type="text"
-	  value="<%= post.get('title') %>"
+	  value="<%= post.escape('title') %>"
 	  name="post[title]">
 
 	<label>Link URL</label>
 	<input
 		type="text"
-		value="<%= post.get('link_url') %>"
+		value="<%= post.escape('link_url') %>"
 		name="post[link_url]">
 
 	<label>Body</label>	
 	<input
 		type="textarea"
-		value="<%= post.get('body') %>"
+		value="<%= post.escape('body') %>"
 		name="post[body]">
 
 	<button class="edit-post">Edit Post</button>

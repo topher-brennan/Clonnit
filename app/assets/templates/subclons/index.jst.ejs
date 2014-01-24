@@ -3,7 +3,7 @@
 	<% subclons.each(function (subclon) { %>
 		<li class="list-group-item subclon" data-id=<%= subclon.id %>">
 			<a href="#/subclons/<%= subclon.id %>">
-				<%= subclon.get('name') %>
+				<%= subclon.escape('name') %>
 			</a>
 		</li>
 	<% }); %>
