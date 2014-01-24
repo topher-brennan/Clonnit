@@ -1,12 +1,20 @@
 <h1><%= post.get('totalVotes') %>
-<a href="<%= post.linkURLOrFragment() %>"><%= post.get('title') %></a></h1>
-<%= post.get('authorUsername') %><br />
-<%= post.get('body') %><br />
-<%= JST["voting_buttons"]({ post: post }) %>
-<% if (post.get('author_id') === Clonnit.currentUser['id']) { %>
+<a href="<%= post.linkURLOrFragment() %>"><%= post.get('title') %></a>
+<small>Submitted by <%= post.get('authorUsername') %></small></h1>
+<%= JST["voting_buttons"]({ post: post }) %><br>
+&nbsp;
+<% if (post.get('body') !== "") { %>
+	<ul class="list-group">
+		<li class="list-group-item">
+			<%= post.get('body') %>
+		</li>
+	</ul>		
+<% } %>	
+<% var currentUser = Clonnit.currentUser %>
+<% if (currentUser && post.get('author_id') === currentUser['id']) { %>
 	<a href="#/posts/<%= post.id %>/edit">Edit Post</a>
 <% } %>
-<h2>Comments</h2>
+<h2><%= post.comments().length %> Comments</h2>
 <form>
   <input
 		type="textarea"
@@ -15,6 +23,7 @@
 		
 	<button class="add-comment">Add Comment</button>
 </form>
+&nbsp;
 <ul class="list-group">
 	<% comments.each(function (comment) { %>
 		<% if (!comment.get('parent_id')) { %>
@@ -24,4 +33,6 @@
 		<% } %>
 	<% }); %>
 </ul>
-<a href="#/subclons/<%= post.get('subclon_id') %>">Back</a>
+<a href="#/subclons/<%= post.get('subclon_id') %>">
+	Back to <%= Clonnit.Data.subclons.get(post.get('subclon_id')).get('name') %>
+</a>

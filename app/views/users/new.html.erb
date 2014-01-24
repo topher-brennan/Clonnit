@@ -1,26 +1,39 @@
-<h1>Sign Up</h1>
-<% if flash[:errors] && !flash[:errors].empty? %>
-  <% flash[:errors].each do |error| %>
-         <%= error %> <br />
-        <% end %>
-<% end %>
-<form action="/users" method="post">
-  <input
-    name="authenticity_token"
-    type="hidden"
-    value="<%= form_authenticity_token %>">
+<div class="row">
+	<div class="col-xs-1">
+	</div>
+	<div class="col-xs-7">		
+		<h1>Sign Up</h1>
+		<% if flash[:errors] && !flash[:errors].empty? %>
+		  <% flash[:errors].each do |error| %>
+		         <%= error %> <br />
+		        <% end %>
+		<% end %>
+		<form action="/users" method="post">
+			<div class="form-group">
+		  	<input
+			    name="authenticity_token"
+			    type="hidden"
+			    value="<%= form_authenticity_token %>">
 
-  <label>Username</label>
-  <input
-    type="text"
-    value=""
-    name="user[username]">
+			  <label>Username</label>
+			  <input
+			    type="text"
+			    value=""
+			    name="user[username]"
+					class="form-control">
 
-  <label>Password</label>
-  <input
-    type="password"
-    value=""
-    name="user[password]">
+			  <label>Password</label>
+			  <input
+			    type="password"
+			    value=""
+			    name="user[password]"
+					class="form-control">
 
-  <input type="submit" value="Sign Up">
-</form>
+			  <button class="btn btn-primary">Sign Up</button>
+			</div>
+		</form>
+	</div>
+	<div class="col-xs-3">
+		<%= render "layouts/login" %>
+	</div>
+</div>

@@ -1,6 +1,6 @@
 Clonnit.Views.NewSubclonView = Backbone.View.extend({
 	events: {
-		"click button.create": "create"
+		"submit #new-subclon-form": "create"
 	},
 	
 	render: function () {
@@ -11,7 +11,7 @@ Clonnit.Views.NewSubclonView = Backbone.View.extend({
 	
 	create: function (event) {
 		event.preventDefault();
-		var formData = $(event.currentTarget.parentElement).serializeJSON();
+		var formData = $(event.currentTarget).serializeJSON();
 		var subclon = new Clonnit.Models.Subclon(formData["subclon"]);
 		Clonnit.Data.subclons.unshift(subclon)
 		subclon.save();

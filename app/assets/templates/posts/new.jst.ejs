@@ -1,27 +1,29 @@
 <h1>Add Post</h1>
-<form>
-	<input
-		type="hidden"
-		value=<%= subclonID %>
-		name="post[subclon_id]">
+<form id="add-post">
+	<div class="form-group">
+		<input
+			type="hidden"
+			value=<%= subclonID %>
+			name="post[subclon_id]">
 
-	<label>Title</label>
-	<input
-	  type="text"
-	  value=""
-	  name="post[title]">
+		<label>Title</label>
+		<input
+		  type="text"
+		  name="post[title]"
+			class="form-control">
 
-	<label>Link URL</label>
-	<input
-		type="text"
-		value=""
-		name="post[link_url]">
+		<label>Link URL</label>
+		<input
+			type="text"
+			name="post[link_url]"
+			class="form-control">
 
-	<label>Body</label>	
-	<input
-		type="textarea"
-		value=""
-		name="post[body]">
+		<label>Body</label>	
+		<textarea
+			name="post[body]"
+			rows="4"
+			class="form-control"></textarea>
 
-	<button class="add-post">Add Post</button>
+		<button class="add-post btn btn-primary">Add Post</button>
+	</div>
 </form>
