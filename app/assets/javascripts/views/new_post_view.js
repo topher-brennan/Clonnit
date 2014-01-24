@@ -16,7 +16,7 @@ Clonnit.Views.NewPostView = Backbone.View.extend({
 		var formData = $(event.currentTarget).serializeJSON();
 		var post = new Clonnit.Models.Post(formData["post"]);
 		post.set('subclon_id', this.attributes.subclonID);
-		var subclon = Clonnit.Data.subclons.get(this.attributes.subclonID);
+		var subclon = Clonnit.Data.subclons.escape(this.attributes.subclonID);
 		var that = this;
 		post.save({}, {
 			success: function () {

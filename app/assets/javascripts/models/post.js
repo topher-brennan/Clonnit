@@ -11,7 +11,7 @@ Clonnit.Models.Post = Backbone.Model.extend({
 	},
 	
 	parse: function (json) {		
-		if (json.comments) {//this.get('comments')) {
+		if (json.comments) {
 			this.comments().set(json.comments, { parse: true });
 			Clonnit.Data.comments.set(json.comments, { remove: false, parse: true });
 
@@ -21,7 +21,7 @@ Clonnit.Models.Post = Backbone.Model.extend({
 	},
 
 	linkURLOrFragment: function () {
-		var link_url = this.get('link_url');
+		var link_url = this.escape('link_url');
 		if (link_url === "") {
 			return "#/posts/" + this.id;
 		} else {

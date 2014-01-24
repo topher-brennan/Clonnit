@@ -1,12 +1,12 @@
 <h1><%= post.get('totalVotes') %>
-<a href="<%= post.linkURLOrFragment() %>"><%= post.get('title') %></a>
-<small>Submitted by <%= post.get('authorUsername') %></small></h1>
+<a href="<%= post.linkURLOrFragment() %>"><%= post.escape('title') %></a>
+<small>Submitted by <%= post.escape('authorUsername') %></small></h1>
 <%= JST["voting_buttons"]({ post: post }) %><br>
 &nbsp;
-<% if (post.get('body') !== "") { %>
+<% if (post.escape('body') !== "") { %>
 	<ul class="list-group">
 		<li class="list-group-item">
-			<%= post.get('body') %>
+			<%= post.escape('body') %>
 		</li>
 	</ul>		
 <% } %>	
@@ -27,12 +27,12 @@
 <ul class="list-group">
 	<% comments.each(function (comment) { %>
 		<% if (!comment.get('parent_id')) { %>
-			<li class="list-group-item"><%= comment.get('body') %><br />
-			<%= comment.get('authorUsername') %>
+			<li class="list-group-item"><%= comment.escape('body') %><br />
+			<%= comment.escape('authorUsername') %>
 			<%= JST['nested']({ comments: comments, parent: comment }) %></li>
 		<% } %>
 	<% }); %>
 </ul>
 <a href="#/subclons/<%= post.get('subclon_id') %>">
-	Back to <%= Clonnit.Data.subclons.get(post.get('subclon_id')).get('name') %>
+	Back to <%= Clonnit.Data.subclons.get(post.get('subclon_id')).escape('name') %>
 </a>

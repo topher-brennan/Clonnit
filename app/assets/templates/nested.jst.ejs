@@ -10,7 +10,7 @@
 	<% comments.each(function (comment) { %>
 		<% var parentID = comment.get('parent_id') %>
 		<% if (parentID && parentID === parent.id ) { %>
-			<li class="list-group-item"><%= comment.get('body') %><br />
+			<li class="list-group-item"><%= comment.escape('body') %><br />
 			<%= comment.get('authorUsername') %>
 			<%= JST['nested']({ comments: comments, parent: comment }) %></li>
 		<% } %>
