@@ -3,8 +3,7 @@
   <%= button_to "Logout", session_url, :method => :delete, :class => "btn btn-primary" %><br />
   Now that you're logged in, you can <a href="#/subclons/new">create your own subclon</a>
 <% else %>
-	<h1>&nbsp;</h1>		
-	Want to try out the app without creating a user account? It only takes one click to sign in as a guest:<br />
+	Want to try out the app without creating a user account? It only takes one click to sign in as a clone:<br />
 	<br />
 	<form action="/session" method="post">
 	  <input
@@ -14,15 +13,15 @@
 
 	  <input
 	    type="hidden"
-	    value="Guest"
+	    value="Clone"
 	    name="user[username]">
 
 	  <input
 	    type="hidden"
-	    value="guestpassword"
+	    value="clonepassword"
 	    name="user[password]">
 
-	  <input type="submit" value="Sign In As Guest" class="btn btn-primary">
+	  <input type="submit" value="Sign In As Clone" class="btn btn-primary">
 	</form><br />
 	You can also <%= link_to "sign up", new_user_url %> or <%= link_to "sign in with your own account", new_session_url %>
 <% end %>
