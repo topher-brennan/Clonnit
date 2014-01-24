@@ -1,7 +1,8 @@
 Clonnit.Views.PostDetailView = Backbone.View.extend({
 	events: {
 		"click button.vote": "vote",
-		"click button.add-comment": "addComment"
+		"click button.add-comment": "addComment",
+		"click button.reply": "expand"
 	},
 	
 	initialize: function () {
@@ -32,7 +33,8 @@ Clonnit.Views.PostDetailView = Backbone.View.extend({
 		
 	addComment: function (event) {
 		event.preventDefault();
-		var formData = $(event.currentTarget.parentElement).serializeJSON();
+		var form = event.currentTarget.parentElement.parentElement;
+		var formData = $(form).serializeJSON();
 		var comment = new Clonnit.Models.Comment(formData["comment"]);
 		var parentID = $(event.currentTarget).data("id");
 		if (parentID) {
@@ -46,5 +48,14 @@ Clonnit.Views.PostDetailView = Backbone.View.extend({
 				that.model.comments().unshift(comment);
 			}
 		});
+	},
+	
+	expand: function (event) {
+		event.preventDefault();
+		var parentID = $(event.currentTarget).data("id");
+		var expandedForm = JST["comments/new_comment_reply"]({
+			parentID: parentID
+		});
+		$(event.currentTarget.parentElement).html(expandedForm);
 	}
 });

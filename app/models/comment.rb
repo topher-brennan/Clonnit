@@ -1,6 +1,8 @@
 class Comment < ActiveRecord::Base
   attr_accessible :body, :author_id, :post_id, :parent_id
   
+  validates :body, :presence => :true
+  
   belongs_to(
     :parent,
     :class_name => "Comment",

@@ -20,12 +20,15 @@
 
 <h2><%= post.comments().length %> Comments</h2>
 <form>
-  <input
-		type="textarea"
-		value=""
-		name="comment[body]">
+	<div class="form-group">
+
+	  <textarea
+			rows="4"
+			name="comment[body]"
+			class="form-control"></textarea>
 		
-	<button class="add-comment">Add Comment</button>
+		<button class="add-comment btn btn-primary">Add Comment</button>
+	</div>
 </form>
 
 &nbsp;
@@ -33,8 +36,9 @@
 <ul class="list-group">
 	<% comments.each(function (comment) { %>
 		<% if (!comment.get('parent_id')) { %>
-			<li class="list-group-item"><%= comment.escape('body') %><br />
-			-<%= comment.escape('authorUsername') %>
+			<li class="list-group-item">
+			<b>Submitted by <%= comment.escape('authorUsername') %></b><br />
+			<%= comment.escape('body') %>
 			<%= JST['nested']({ comments: comments, parent: comment }) %></li>
 		<% } %>
 	<% }); %>

@@ -7,6 +7,7 @@ Made in 8 days for an App Academy student final project by Chris Hallquist. Writ
 ## TODO
 
 * Drag and drop to organize subs
+* Expandable comment boxes
 * Deleting post
     * Delete/edit other things
 * File uploading
