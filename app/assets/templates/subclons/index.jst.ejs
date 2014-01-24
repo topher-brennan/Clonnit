@@ -1,5 +1,8 @@
 <h1>Subclons</h1>
-<ul class="list-group">
+
+By default, subclons are sorted by popularity. Click and drag to change this.<br />
+&nbsp;
+<ul class="list-group" id="sortable">
 	<% subclons.each(function (subclon) { %>
 		<li class="list-group-item subclon" data-id=<%= subclon.id %>">
 			<a href="#/subclons/<%= subclon.id %>">
@@ -8,3 +11,5 @@
 		</li>
 	<% }); %>
 </ul>
+
+<script>$("#sortable").sortable();</script>

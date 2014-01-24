@@ -7,6 +7,7 @@ window.Clonnit = {
 
   initialize: function() {
 		Clonnit.Data.subclons = new Clonnit.Collections.Subclons();
+		Clonnit.Data.subclons.sort();
 		Clonnit.Data.posts = new Clonnit.Collections.Posts();
 		Clonnit.Data.comments = new Clonnit.Collections.Comments();
 		Clonnit.Data.subclons.fetch({

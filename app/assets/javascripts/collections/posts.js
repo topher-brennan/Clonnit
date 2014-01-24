@@ -5,4 +5,8 @@ Clonnit.Collections.Posts = Backbone.Collection.extend({
 			this.subclon = options.subclon;
 		}
 	},
+	
+	comparator: function (post) {
+		return -post.get('totalVotes');
+	}
 });

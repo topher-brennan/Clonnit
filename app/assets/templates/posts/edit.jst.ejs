@@ -1,22 +1,26 @@
 <h1>Edit Post</h1>
-<form>
-	<label>Title</label>
-	<input
-	  type="text"
-	  value="<%= post.escape('title') %>"
-	  name="post[title]">
+<form id="add-post">
+	<div class="form-group">
+		<label>Title</label>
+		<input
+		  type="text"
+		  name="post[title]"
+			class="form-control"
+			value="<%= post.escape('title') %>">
 
-	<label>Link URL</label>
-	<input
-		type="text"
-		value="<%= post.escape('link_url') %>"
-		name="post[link_url]">
+		<label>Link URL</label>
+		<input
+			type="text"
+			name="post[link_url]"
+			class="form-control"
+			value="<%= post.escape('link_url') %>">
 
-	<label>Body</label>	
-	<input
-		type="textarea"
-		value="<%= post.escape('body') %>"
-		name="post[body]">
+		<label>Body</label>	
+		<textarea
+			name="post[body]"
+			rows="4"
+			class="form-control"><%= post.escape('body') %></textarea>
 
-	<button class="edit-post">Edit Post</button>
+		<button class="edit-post btn btn-primary">Edit Post</button>
+	</div>
 </form>

@@ -14,7 +14,8 @@ Clonnit.Views.PostEditView = Backbone.View.extend({
 	
 	editPost: function(event) {
 		event.preventDefault();
-		var formData = $(event.currentTarget.parentElement).serializeJSON();
+		var form = event.currentTarget.parentElement.parentElement
+		var formData = $(form).serializeJSON();
 		var that = this
 		that.model.save(formData, {
 			success: function () {

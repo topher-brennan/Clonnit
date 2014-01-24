@@ -18,5 +18,13 @@ Clonnit.Models.Subclon = Backbone.Model.extend({
 		}
 		
 		return jsonResp;
+	},
+	
+	popular: function() {
+		var popularity = 0
+		this.posts().each(function (post) {
+			popularity += (1 + post.comments().length);
+		});
+		return popularity
 	}
 });

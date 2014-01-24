@@ -6,8 +6,6 @@ Made in 8 days for an App Academy student final project by Chris Hallquist. Writ
 
 ## TODO
 
-* Drag and drop to organize subs
-* Expandable comment boxes
 * Deleting post
     * Delete/edit other things
 * File uploading
@@ -19,6 +17,6 @@ Made in 8 days for an App Academy student final project by Chris Hallquist. Writ
     * Comment voting
     * Expand / collapse comment trees
     * Let users change their votes
-		* Sorting based on votes
 * Testing?
 * Comment / post reply notification
+* Store individualized sub arrangements
