@@ -22,7 +22,7 @@ Clonnit.Routers.AppRouter = Backbone.Router.extend({
 	},
 	
 	subclonShow: function (id) {
-		var subclon = Clonnit.Data.subclons.findWhere({ id: parseInt(id) });
+		var subclon = Clonnit.Data.subclons.get(id);
 		
 		var subclonDetailView = new Clonnit.Views.SubclonDetailView({
 			model: subclon
@@ -39,7 +39,7 @@ Clonnit.Routers.AppRouter = Backbone.Router.extend({
 	},
 	
 	postShow: function (id) {
-		var post = Clonnit.Data.posts.findWhere({ id: parseInt(id) });
+		var post = Clonnit.Data.posts.get(id);
 		var postDetailView = new Clonnit.Views.PostDetailView({
 			model: post
 		});

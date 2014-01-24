@@ -23,6 +23,7 @@ Clonnit.Views.NewPostView = Backbone.View.extend({
 				post.set('totalVotes', 0);
 				post.set('authorUsername', Clonnit.currentUser.username);
 				subclon.posts().unshift(post);
+				Clonnit.Data.posts.unshift(post);
 				Backbone.history.navigate("subclons/" + that.attributes.subclonID, {
 					trigger: true
 				});
