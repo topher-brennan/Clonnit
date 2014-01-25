@@ -6,6 +6,7 @@
 	<% comments.each(function (comment) { %>
 		<% var parentID = comment.get('parent_id') %>
 		<% if (parentID && parentID === parent.id ) { %>
+			<br />
 			<li class="list-group-item">
 			<p><b>Submitted by <%= comment.escape('authorUsername') %></b></p>
 			<p><%= comment.escape('body') %></p>
