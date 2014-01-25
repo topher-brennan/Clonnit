@@ -1,3 +1,3 @@
 <% _(posts).each(function (post) { %>
-<li><%= post.get('title') %></li>
+<li><%= post.escape('title') %></li>
 <% }); %>

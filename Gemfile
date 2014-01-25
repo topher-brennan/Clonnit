@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'backbone-on-rails'
 gem 'ejs'
+gem 'dotenv-rails'
 
 # gem 'rails_12factor', group: :production
 

@@ -1,3 +1,4 @@
+<%= image_tag "Clones.jpg", :class => "img-circle img-responsive", :alt => "Responsive image" %>
 <% if !current_user.nil? %>
   <h3>Logged in as: <%= current_user.username %></h3>
   <%= button_to "Logout", session_url, :method => :delete, :class => "btn btn-primary" %><br />
