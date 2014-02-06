@@ -1,7 +1,9 @@
-<br />
-<div>
-	<button class="reply btn btn-primary" data-id=<%= parent.id %>>Reply</button>
-</div>
+<% if (currentUser) { %>
+	<br />
+	<div>
+		<button class="reply btn btn-primary" data-id=<%= parent.id %>>Reply</button>
+	</div>
+<% } %>
 <ul class="list-group">
 	<% comments.each(function (comment) { %>
 		<% var parentID = comment.get('parent_id') %>

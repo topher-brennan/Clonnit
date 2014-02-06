@@ -19,17 +19,19 @@
 <% } %>
 
 <h2><%= post.comments().length %> Comments</h2>
-<form>
-	<div class="form-group">
+<% if (currentUser) { %>
+	<form>
+		<div class="form-group">
 
-	  <textarea
-			rows="4"
-			name="comment[body]"
-			class="form-control"></textarea><br />
+		  <textarea
+				rows="4"
+				name="comment[body]"
+				class="form-control"></textarea><br />
 		
-		<button class="add-comment btn btn-primary">Add Comment</button>
-	</div>
-</form>
+			<button class="add-comment btn btn-primary">Add Comment</button>
+		</div>
+	</form>
+<% } %>
 
 &nbsp;
 

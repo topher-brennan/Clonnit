@@ -1,4 +1,8 @@
-<h1><%= subclon.escape('name') %> <small><a href="#/subclons/<%= subclon.id %>/posts/new">Add Post</a></small></h1>
+<h1><%= subclon.escape('name') %> 
+<% if (currentUser) { %>
+	<small><a href="#/subclons/<%= subclon.id %>/posts/new">Add Post</a></small>
+<% } %>
+</h1>
 
 <ul class="list-group">
 	<% posts.each(function (post) { %>
