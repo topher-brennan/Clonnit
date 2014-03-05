@@ -1,5 +1,7 @@
 # Clonnit
 
+See the live version at [Clonnit.com](http://clonnit.com)!
+
 ## A Reddit Clone
 
 Made in 8 days for an App Academy student final project by Chris Hallquist. Written as a (mostly) single-page app with Backbone.js on Rails. Styling done with Twitter Bootstrap and jQuery UI.
@@ -22,3 +24,4 @@ Made in 8 days for an App Academy student final project by Chris Hallquist. Writ
 		* Better post sorting algorithm
 * Testing?
 * Store individualized sub arrangements
+* On sign in / sign up, redirect to page user was previously at
