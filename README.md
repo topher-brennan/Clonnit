@@ -2,6 +2,8 @@
 
 See the live version at [Clonnit.com](http://clonnit.com)!
 
+(Note: if the above link doesn't work, try [clonnit.herokuapp.com](clonnit.herokuapp.com).)
+
 ## A Reddit Clone
 
 Made in 8 days for an App Academy student final project by Chris Hallquist. Written as a (mostly) single-page app with Backbone.js on Rails. Styling done with Twitter Bootstrap and jQuery UI.
